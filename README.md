@@ -70,11 +70,11 @@ Then choose **Kernel → Restart & Run All**. A full run takes about 6 minutes. 
 
 ## Key findings
 
-*(To be written by the group.)*
+
 
 ## Declaration of generative AI and AI-assisted technologies
 
-*(To be finalised by the group so that it matches the declaration in the report.)*
+
 
 ## References
 
