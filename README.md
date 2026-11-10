@@ -2,7 +2,7 @@
 
 **DSA211 Statistical Learning · Group G1-4 · Topic 3**
 
-Imran · Daniel · Aarav · Nicholas · Adam
+Daniel · Nicholas · Adam · Aarav · Imran
 
 ---
 
@@ -70,11 +70,16 @@ Then choose **Kernel → Restart & Run All**. A full run takes about 6 minutes. 
 
 ## Key findings
 
-
+- Bias² + variance + σ² matches the simulated test MSE. At σ = 0.3 the gap is at most 0.0012 for every degree, which is within Monte Carlo error.
+- Bias² is about 0.022 for degrees 1 and 2 and roughly 0 from degree 3, and it doesn't depend on σ. Variance goes up with degree, and for d ≥ 3 it scales exactly with σ² (we reuse the same noise draws at every σ).
+- At σ = 0.3, degree 3 has the lowest test MSE (0.099). One degree too many costs about 3%, while using degree 1 or 2 costs 19–23%.
+- Variance is much larger near the ends of the input range. Comparing |x₀| > 0.9 with |x₀| < 0.1, it is about 4 times larger for degree 1 and about 810 times larger for degree 10. This is a leverage effect, not exponential growth.
+- The true model isn't always the best predictor. Degree 3 wins up to σ = 0.5, but at σ = 1 a straight line does better than the true cubic (test MSE 1.075 vs 1.102), as we predicted.
+- The LASSO shows the same trade-off on a continuous scale, but the best polynomial still beats the best LASSO at every σ. The gap shrinks as noise rises, from 5.9% at σ = 0.2 to 0.9% at σ = 1. Both "best" settings are picked using test MSE, so this is an oracle comparison. The LASSO keeps exactly {x, x³} in at most 2% of runs, probably because the powers are highly correlated.
+- In real data σ and the true function are unknown, so complexity has to be chosen by cross-validation. On our demo dataset 10-fold CV picked degree 3, but over 200 simulated datasets it only did so 58% of the time at σ = 0.3 (the one-SE rule 46.5%), so a single CV choice can't be fully trusted.
 
 ## Declaration of generative AI and AI-assisted technologies
 During the span of the project we used Claude for writing and debugging Python code. While Claude was assisting with coding, we were documenting our project's workflow through our inferences of the project's requirement via the notebook-markdown feature.
 
 ## References
-
 - Zou, H., Hastie, T. & Tibshirani, R. (2007). On the "degrees of freedom" of the lasso. *The Annals of Statistics*, 35(5), 2173–2192.
