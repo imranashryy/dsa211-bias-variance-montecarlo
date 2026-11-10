@@ -73,8 +73,7 @@ Then choose **Kernel → Restart & Run All**. A full run takes about 6 minutes. 
 
 
 ## Declaration of generative AI and AI-assisted technologies
-
-
+During the span of the project we used Claude for writing and debugging Python code. While Claude was assisting with coding, we were documenting our project's workflow through our inferences of the project's requirement via the notebook-markdown feature.
 
 ## References
 
